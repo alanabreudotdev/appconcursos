@@ -65,7 +65,7 @@ class _ProfilePageState extends ModularState<ProfilePage, ProfileController> {
           ),
           SizedBox(height: 20,),
           Text(
-            'Alan Abreu dos Santos Lima',
+            'Alan Abreu',
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             maxLines: 2,
             textAlign: TextAlign.center,
@@ -75,7 +75,31 @@ class _ProfilePageState extends ModularState<ProfilePage, ProfileController> {
           Text(
             'alan__abreu@gmail.com.br',
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(fontSize: 10, color: Colors.grey[400]),
+            style: TextStyle(fontSize: 12, color: Colors.grey[400]),
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Column(
+                children: <Widget>[
+                  Text('Questões'),
+                  Text('356')
+                ],
+              ),
+               Column(
+                children: <Widget>[
+                  Text('Questões'),
+                  Text('356')
+                ],
+              ),
+               Column(
+                children: <Widget>[
+                  Text('Questões'),
+                  Text('356')
+                ],
+              )
+            ],
           )
         ],
       ),

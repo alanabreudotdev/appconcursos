@@ -1,0 +1,4 @@
+lib/app/core/components/custom_drawer/custom_drawer/custom_drawer_widget.dart
+test/app/core/components/custom_drawer/custom_drawer/custom_drawer_widget_test.dart
+lib/app/core/components/custom_drawer/custom_drawer/custom_drawer_controller.dart
+test/app/core/components/custom_drawer/custom_drawer/custom_drawer_controller_test.dart

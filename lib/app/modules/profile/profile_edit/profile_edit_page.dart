@@ -15,25 +15,22 @@ class ProfileEditPage extends StatefulWidget {
 }
 
 class _ProfileEditPageState extends State<ProfileEditPage> {
-
-  TextEditingController _name = TextEditingController();
-
-
+  
 
   @override
   Widget build(BuildContext context) {
     return CustomScaffoldWidget(
         iconActionColor: colorDefault,
         title: 'Editar Perfil',
-        widgets: _body()); 
+        widgets: _body());
   }
 
   _body() {
     return SingleChildScrollView(
       child: Container(
-        padding: EdgeInsets.all(14),
         width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height*0.90,
+        height: MediaQuery.of(context).size.height / 1.1,
+        padding: EdgeInsets.only(left: 30, right: 30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
@@ -41,18 +38,20 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
               backgroundImage: AssetImage('assets/images/foto_profile.jpg'),
               radius: 70.0,
             ),
-           
-           Column(
-             children: <Widget>[
+            Column(
+              children: <Widget>[
                 CustomTextWidget(
-              valorInicial: "Alan Abreu dos Santos",
-              labelText: 'Nome'),
-            CustomTextWidget(
-              valorInicial: "alan__abreu@hotmail.com",
-              labelText: 'Email'),
-             ],
-           ),
-            CustomRaisedButtonWidget(btnName: "Atualizar", accentColor: Helpers().parseColor(colorDefault),)
+                    valorInicial: "Alan Abreu dos Santos", labelText: 'Nome'),
+                CustomTextWidget(
+                    valorInicial: "alan__abreu@hotmail.com",
+                    labelText: 'Email'),
+              ],
+            ),
+            CustomRaisedButtonWidget(
+              btnName: "Atualizar",
+              accentColor: Helpers().parseColor(colorDefault),
+              verticalSize: 20,
+            )
           ],
         ),
       ),
