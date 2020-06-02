@@ -52,16 +52,18 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                       Column(
                         children: <Widget>[
                           BoxHorizontalWidget(
+                            icons: Icons.data_usage,
                             altura: 110,
                             cor01: Colors.blueAccent[200],
                             cor02: Colors.deepPurple[600],
-                            titulo: '% DE ACERTO',
-                            subTitulo: '85',
+                            titulo: 'RANKING',
+                            subTitulo: '352',
                           ),
                           SizedBox(
                             height: 10,
                           ),
                           BoxHorizontalWidget(
+                            icons: Icons.all_inclusive,
                             altura: 110,
                             cor01: Colors.green[300],
                             cor02: Colors.green[700],

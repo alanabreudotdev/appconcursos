@@ -40,30 +40,33 @@ class _ProfilePageState extends ModularState<ProfilePage, ProfileController> {
           )
         ],
         widgets: SingleChildScrollView(
-             child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  _top(),
-                ],
-              ),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height / 1.2,
+            padding: EdgeInsets.only(left: 30, right: 30),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[_top(), _middleBody(), _bottomBody()],
             ),
-          
+          ),
         ));
   }
 
   _top() {
     return Container(
-      width: 250,
       child: Column(
         children: <Widget>[
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           CircleAvatar(
             maxRadius: 60,
             backgroundImage: AssetImage('assets/images/foto_profile.jpg'),
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           Text(
             'Alan Abreu',
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
@@ -77,32 +80,91 @@ class _ProfilePageState extends ModularState<ProfilePage, ProfileController> {
             overflow: TextOverflow.ellipsis,
             style: TextStyle(fontSize: 12, color: Colors.grey[400]),
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  Text('Questões'),
-                  Text('356')
-                ],
-              ),
-               Column(
-                children: <Widget>[
-                  Text('Questões'),
-                  Text('356')
-                ],
-              ),
-               Column(
-                children: <Widget>[
-                  Text('Questões'),
-                  Text('356')
-                ],
-              )
-            ],
-          )
         ],
       ),
+    );
+  }
+
+  _middleBody() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        _middleCard('Ranking', '#350'),
+      ],
+    );
+  }
+
+  _middleCard(String title, String value) {
+    return Column(
+      children: <Widget>[
+        Text(title,
+            style: TextStyle(color: Colors.grey[500], fontSize: 14)),
+        SizedBox(
+          height: 8,
+        ),
+        Text(value, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23))
+      ],
+    );
+  }
+
+  _bottomBody(){
+    return Column(
+      children: <Widget>[
+         Row(
+           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+           children: <Widget>[
+             Text('Questões respondidas'),
+             Text('5236 questões')
+           ],
+         ),
+         SizedBox(height: 5,),
+         Row(
+           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+           children: <Widget>[
+             Text('Questões certas'),
+             Text('4360 questões')
+           ],
+         ),
+         SizedBox(height: 5,),
+         Row(
+           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+           children: <Widget>[
+             Text('Questões erradas'),
+             Text('1200 questões')
+           ],
+         ),
+         SizedBox(height: 50,),
+        _linearProgressBar(0.7)
+      ],
+    );
+  }
+
+  _linearProgressBar(double value) {
+    return Column(
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text('Acertei'),
+            Text('Errei')
+          ],
+        ),
+        SizedBox(height: 5,),
+        LinearProgressIndicator(
+          backgroundColor: Colors.red,
+          valueColor: new AlwaysStoppedAnimation<Color>(Colors.green),
+          value: value,
+        ),
+        SizedBox(height: 5,),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text('70%'),
+            Text('30%')
+          ],
+        )
+      ],
     );
   }
 }

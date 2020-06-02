@@ -3,20 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class AppWidget extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-     debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       navigatorKey: Modular.navigatorKey,
       title: appName,
-       
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        accentColorBrightness: Brightness.dark,
-        scaffoldBackgroundColor: Colors.grey[100]
-        
-        
-      ),
+          primarySwatch: Colors.blue,
+         
+          ),
       initialRoute: '/',
       onGenerateRoute: Modular.generateRoute,
     );

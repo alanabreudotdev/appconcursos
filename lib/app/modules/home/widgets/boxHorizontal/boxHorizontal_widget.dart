@@ -7,10 +7,11 @@ final String titulo;
 final String subTitulo;
 final Color cor01;
 final Color cor02;
+final IconData icons;
 
   
 
-  const BoxHorizontalWidget({Key key, this.altura, this.titulo, this.subTitulo, this.cor01, this.cor02}) : super(key: key);
+  const BoxHorizontalWidget({Key key, this.altura, this.titulo, this.subTitulo, this.cor01, this.cor02, this.icons}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,7 @@ final Color cor02;
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Icon(
-                  Icons.check_circle,
+                  icons,
                   color: Colors.white,
                 ),
                 SizedBox(
