@@ -21,7 +21,8 @@ class _ProfilePageState extends ModularState<ProfilePage, ProfileController> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffoldWidget(
-        hasMenu: true,
+      
+        hasMenu: false,
         scaffoldKey: _key,
         iconActionColor: colorDefault,
         title: '',
@@ -98,8 +99,7 @@ class _ProfilePageState extends ModularState<ProfilePage, ProfileController> {
   _middleCard(String title, String value) {
     return Column(
       children: <Widget>[
-        Text(title,
-            style: TextStyle(color: Colors.grey[500], fontSize: 14)),
+        Text(title, style: TextStyle(color: Colors.grey[500], fontSize: 14)),
         SizedBox(
           height: 8,
         ),
@@ -108,33 +108,30 @@ class _ProfilePageState extends ModularState<ProfilePage, ProfileController> {
     );
   }
 
-  _bottomBody(){
+  _bottomBody() {
     return Column(
       children: <Widget>[
-         Row(
-           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-           children: <Widget>[
-             Text('Questões respondidas'),
-             Text('5236 questões')
-           ],
-         ),
-         SizedBox(height: 5,),
-         Row(
-           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-           children: <Widget>[
-             Text('Questões certas'),
-             Text('4360 questões')
-           ],
-         ),
-         SizedBox(height: 5,),
-         Row(
-           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-           children: <Widget>[
-             Text('Questões erradas'),
-             Text('1200 questões')
-           ],
-         ),
-         SizedBox(height: 50,),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[Text('Respondidas'), Text('5236 questões')],
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[Text('Acertos'), Text('4360 questões')],
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[Text('Erros'), Text('1200 questões')],
+        ),
+        SizedBox(
+          height: 50,
+        ),
         _linearProgressBar(0.7)
       ],
     );
@@ -145,24 +142,22 @@ class _ProfilePageState extends ModularState<ProfilePage, ProfileController> {
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Text('Acertei'),
-            Text('Errei')
-          ],
+          children: <Widget>[Text('Acertei'), Text('Errei')],
         ),
-        SizedBox(height: 5,),
+        SizedBox(
+          height: 5,
+        ),
         LinearProgressIndicator(
           backgroundColor: Colors.red,
           valueColor: new AlwaysStoppedAnimation<Color>(Colors.green),
           value: value,
         ),
-        SizedBox(height: 5,),
+        SizedBox(
+          height: 5,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Text('70%'),
-            Text('30%')
-          ],
+          children: <Widget>[Text('70%'), Text('30%')],
         )
       ],
     );

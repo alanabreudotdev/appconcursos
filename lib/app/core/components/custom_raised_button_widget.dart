@@ -16,7 +16,7 @@ Widget build(BuildContext context) {  return FittedBox(
   fillColor: accentColor,
   splashColor: Colors.black12,
   elevation: 8.0,
-  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
   child: Container(
     width: MediaQuery.of(context).size.width,
     padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: verticalSize),

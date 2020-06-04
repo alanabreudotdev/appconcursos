@@ -1,0 +1,5 @@
+lib/app/modules/disciplinas/disciplinas_module.dart
+lib/app/modules/disciplinas/disciplinas_page.dart
+test/app/modules/disciplinas/disciplinas_page_test.dart
+lib/app/modules/disciplinas/disciplinas_controller.dart
+test/app/modules/disciplinas/disciplinas_controller_test.dart

@@ -1,7 +1,16 @@
+import 'package:eusereiaprovado/app/core/components/custom_drawer/custom_drawer_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-class CustomDrawerWidget extends StatelessWidget {
+
+class CustomDrawerWidget extends StatefulWidget {
+  @override
+  _CustomDrawerWidgetState createState() => _CustomDrawerWidgetState();
+}
+
+class _CustomDrawerWidgetState extends ModularState<CustomDrawerWidget, CustomDrawerController> {
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -59,6 +68,7 @@ class CustomDrawerWidget extends StatelessWidget {
                 ],
               ),
             ),
+           
             Padding(
               padding: const EdgeInsets.only(left: 20.0),
               child: Column(
@@ -77,7 +87,7 @@ class CustomDrawerWidget extends StatelessWidget {
                       color: Colors.blue,
                     ),
                     title: Text('Disciplinas'),
-                    onTap: () => print('home'),
+                    onTap: () => Modular.to.pushReplacementNamed('/disciplinas'),
                   ),
                   ListTile(
                     leading: Icon(
@@ -87,13 +97,21 @@ class CustomDrawerWidget extends StatelessWidget {
                     title: Text('Questões'),
                     onTap: () => print('home'),
                   ),
+                   ListTile(
+                    leading: Icon(
+                      Icons.equalizer,
+                      color: Colors.blueGrey,
+                    ),
+                    title: Text('Ranking'),
+                    onTap: () => Modular.to.pushNamed('/ranking'),
+                  ),
                   ListTile(
                     leading: Icon(
                       Icons.notifications_active,
                       color: Colors.red,
                     ),
                     title: Text('Notificações'),
-                    onTap: () => print('home'),
+                    onTap: () => Modular.to.pushNamed('/notifications'),
                   ),
                   ListTile(
                     leading: Icon(
@@ -109,7 +127,7 @@ class CustomDrawerWidget extends StatelessWidget {
                       color: Colors.orange,
                     ),
                     title: Text('Suporte'),
-                    onTap: () => print('home'),
+                    onTap: () => Modular.to.pushNamed('/support'),
                   ),
                 ],
               ),
@@ -120,3 +138,5 @@ class CustomDrawerWidget extends StatelessWidget {
     );
   }
 }
+
+

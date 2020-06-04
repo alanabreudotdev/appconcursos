@@ -1,0 +1,5 @@
+lib/app/modules/notifications/notifications_module.dart
+lib/app/modules/notifications/notifications_page.dart
+test/app/modules/notifications/notifications_page_test.dart
+lib/app/modules/notifications/notifications_controller.dart
+test/app/modules/notifications/notifications_controller_test.dart

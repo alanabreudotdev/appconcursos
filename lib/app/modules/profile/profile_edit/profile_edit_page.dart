@@ -20,6 +20,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffoldWidget(
+      isCenterTitle: false,
         iconActionColor: colorDefault,
         title: 'Editar Perfil',
         widgets: _body());

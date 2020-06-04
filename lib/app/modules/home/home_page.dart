@@ -34,6 +34,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffoldWidget(
+      scaffoldBackColor: Colors.grey[200],
       hasMenu: true,
       iconActionColor: colorDefault,
       scaffoldKey: _scaffoldKey,
@@ -46,14 +47,14 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Container(
-                  height: 230,
+                  height: 210,
                   child: Row(
                     children: <Widget>[
                       Column(
                         children: <Widget>[
                           BoxHorizontalWidget(
                             icons: Icons.data_usage,
-                            altura: 110,
+                            altura: 100,
                             cor01: Colors.blueAccent[200],
                             cor02: Colors.deepPurple[600],
                             titulo: 'RANKING',
@@ -64,7 +65,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                           ),
                           BoxHorizontalWidget(
                             icons: Icons.all_inclusive,
-                            altura: 110,
+                            altura: 100,
                             cor01: Colors.green[300],
                             cor02: Colors.green[700],
                             titulo: 'QUESTÕES RESOLVIDAS',

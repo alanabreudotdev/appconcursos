@@ -6,11 +6,18 @@ class CustomDrawerController = _CustomDrawerControllerBase
     with _$CustomDrawerController;
 
 abstract class _CustomDrawerControllerBase with Store {
-  @observable
-  int value = 0;
+
+  @observable 
+  bool theme = false;
+
+  bool get themeChanged => theme;
 
   @action
-  void increment() {
-    value++;
+  void setTheme(value) => theme = value;
+
+  @action
+  themeChange(value) {
+    print(value);
+    setTheme(value);
   }
 }
