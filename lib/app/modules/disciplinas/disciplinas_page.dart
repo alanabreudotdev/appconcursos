@@ -21,9 +21,53 @@ class DisciplinasPage extends StatefulWidget {
 class _DisciplinasPageState
     extends ModularState<DisciplinasPage, DisciplinasController> {
   //use 'controller' variable to access controller
-  GlobalKey<ScaffoldState> _keySca = GlobalKey<ScaffoldState>();
+
+ List _disc = [
+    {'icon': 'gramatica.png', 'disc': 'Portugues'},
+    {'icon': 'formula.png', 'disc': 'Matemática'},
+    {'icon': 'formula.png', 'disc': 'Rac. Lógico'},
+    {'icon': 'codigo.png', 'disc': 'Informática'},
+    {'icon': 'metodo.png', 'disc': 'Atualidades'},
+    {'icon': 'seguranca.png', 'disc': 'Legislação Específicaaasas'},
+  ];
+
+@override
+Widget build(BuildContext context) {
+  return CustomScaffoldWidget(
+     hasMenu: false,
+      isCenterTitle: true,
+      iconActionColor: colorDefault,
+      title: 'Teoria',
+      widgets: ListView.builder(
+        itemCount: _disc.length,
+        itemBuilder: (context, index){
+          return Padding(
+            padding: const EdgeInsets.only(left:10.0, right: 10),
+            child: Card(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: AssetImage('assets/icons/${_disc[index]["icon"]}'),
+                    maxRadius: 25,
+                  ),
+                  title: Text('${_disc[index]["disc"]}',
+                  overflow: TextOverflow.ellipsis,) ,
+                  trailing: Icon(Icons.arrow_right),
+                  onTap: () => Modular.link.pushNamed('/teoria/${_disc[index]["disc"]}'),
+                ),
+              ),
+            ),
+          );
+        })
+  );
+}
+
+
+ 
+ /* GlobalKey<ScaffoldState> _keySca = GlobalKey<ScaffoldState>();
   WebViewController _controller;
-  @override
+   @override
   Widget build(BuildContext context) {
     return CustomScaffoldWidget(
       hasMenu: true,
@@ -49,5 +93,5 @@ class _DisciplinasPageState
         mimeType: 'text/html',
         encoding: Encoding.getByName('utf-8')
     ).toString());
-  }
+  } */
 }

@@ -15,7 +15,7 @@ Widget build(BuildContext context) {  return FittedBox(
   child: RawMaterialButton(
   fillColor: accentColor,
   splashColor: Colors.black12,
-  elevation: 8.0,
+  elevation: 5.0,
   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
   child: Container(
     width: MediaQuery.of(context).size.width,

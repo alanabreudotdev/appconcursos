@@ -1,0 +1,4 @@
+lib/app/modules/questions/components/qst_itens/qst_itens_widget.dart
+test/app/modules/questions/components/qst_itens/qst_itens_widget_test.dart
+lib/app/modules/questions/components/qst_itens/qst_itens_controller.dart
+test/app/modules/questions/components/qst_itens/qst_itens_controller_test.dart

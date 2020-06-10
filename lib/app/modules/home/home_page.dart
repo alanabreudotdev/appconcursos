@@ -41,112 +41,111 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       title: 'Eu Serei Aprovado',
       customDrawer: CustomDrawerWidget(),
       widgets: SingleChildScrollView(
-        child:  Padding(
-            padding: const EdgeInsets.all(14.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Container(
-                  height: 210,
-                  child: Row(
-                    children: <Widget>[
-                      Column(
-                        children: <Widget>[
-                          BoxHorizontalWidget(
-                            icons: Icons.data_usage,
-                            altura: 100,
-                            cor01: Colors.blueAccent[200],
-                            cor02: Colors.deepPurple[600],
-                            titulo: 'RANKING',
-                            subTitulo: '352',
+        child: Padding(
+          padding: const EdgeInsets.all(14.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Container(
+                height: 210,
+                child: Row(
+                  children: <Widget>[
+                    Column(
+                      children: <Widget>[
+                        BoxHorizontalWidget(
+                          icons: Icons.data_usage,
+                          altura: 100,
+                          cor01: Colors.blueAccent[200],
+                          cor02: Colors.deepPurple[600],
+                          titulo: 'RANKING',
+                          subTitulo: '352',
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        BoxHorizontalWidget(
+                          icons: Icons.all_inclusive,
+                          altura: 100,
+                          cor01: Colors.green[300],
+                          cor02: Colors.green[700],
+                          titulo: 'QUESTÕES RESOLVIDAS',
+                          subTitulo: '23300',
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.white),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Center(
+                                  child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('SEU PERFIL'),
+                              )),
+                              CircleAvatar(
+                                maxRadius: 35,
+                                backgroundImage: AssetImage(
+                                    'assets/images/foto_profile.jpg'),
+                              ),
+                              Text(
+                                'Alan Abreu',
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              Text(
+                                'alan__abreu@gmail.com.br',
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    fontSize: 10, color: Colors.grey[400]),
+                              )
+                            ],
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          BoxHorizontalWidget(
-                            icons: Icons.all_inclusive,
-                            altura: 100,
-                            cor01: Colors.green[300],
-                            cor02: Colors.green[700],
-                            titulo: 'QUESTÕES RESOLVIDAS',
-                            subTitulo: '23300',
-                          ),
-                        ],
+                        ),
                       ),
-                      SizedBox(
-                        width: 10,
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height / 2.6,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8.0, vertical: 12),
+                        child: Text('DISCIPLINAS'),
                       ),
                       Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.white),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                          child: GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3),
+                        itemBuilder: (_, index) {
+                          final _random = new Random();
+                          return GestureDetector(
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Center(
-                                    child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text('SEU PERFIL'),
-                                )),
-                                CircleAvatar(
-                                  maxRadius: 35,
-                                  backgroundImage: AssetImage(
-                                      'assets/images/foto_profile.jpg'),
-                                ),
-                                Text(
-                                  'Alan Abreu',
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                                Text(
-                                  'alan__abreu@gmail.com.br',
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                      fontSize: 10, color: Colors.grey[400]),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height / 2.6,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8.0, vertical: 12),
-                          child: Text('DISCPLINAS'),
-                        ),
-                        Expanded(
-                            child: GridView.builder(
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 3),
-                          itemBuilder: (_, index) {
-                            final _random = new Random();
-                            return Column(
                               children: <Widget>[
                                 Center(
                                     child: CircleAvatar(
@@ -163,28 +162,30 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                   overflow: TextOverflow.ellipsis,
                                 )
                               ],
-                            );
-                          },
-                          itemCount: _disc.length,
-                        ))
-                      ],
-                    ),
+                            ),
+                            onTap: () => Modular.link.pushNamed(
+                                '/disciplinas/teoria/${_disc[index]["disc"]}'),
+                          );
+                        },
+                        itemCount: _disc.length,
+                      ))
+                    ],
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                CustomRaisedButtonWidget(
-                  btnName: 'RESOLVER QUESTÕES',
-                  accentColor: Helpers().parseColor(colorDefault),
-                  verticalSize: 20,
-                  action: () => print('resolver'),
-                )
-              ],
-            ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              CustomRaisedButtonWidget(
+                btnName: 'RESOLVER QUESTÕES',
+                accentColor: Helpers().parseColor(colorDefault),
+                verticalSize: 20,
+                action: () => print('resolver'),
+              )
+            ],
           ),
         ),
-          
+      ),
     );
   }
 }

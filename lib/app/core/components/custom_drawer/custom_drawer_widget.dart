@@ -87,7 +87,7 @@ class _CustomDrawerWidgetState extends ModularState<CustomDrawerWidget, CustomDr
                       color: Colors.blue,
                     ),
                     title: Text('Disciplinas'),
-                    onTap: () => Modular.to.pushReplacementNamed('/disciplinas'),
+                    onTap: () => Modular.to.pushNamed('/disciplinas'),
                   ),
                   ListTile(
                     leading: Icon(
@@ -95,7 +95,7 @@ class _CustomDrawerWidgetState extends ModularState<CustomDrawerWidget, CustomDr
                       color: Colors.purple,
                     ),
                     title: Text('Questões'),
-                    onTap: () => print('home'),
+                     onTap: () => Modular.to.pushNamed('/questions/questions-filters'),
                   ),
                    ListTile(
                     leading: Icon(

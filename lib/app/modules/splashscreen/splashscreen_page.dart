@@ -19,7 +19,7 @@ class _SplashscreenPageState
   @override
   void initState() {
     // TODO: implement initState
-    Future.delayed(Duration(seconds: 5)).then((value) => Modular.to.pushReplacementNamed('/login'));
+    Future.delayed(Duration(seconds: 7)).then((value) => Modular.to.pushReplacementNamed('/login'));
   }
 
   @override
@@ -33,8 +33,8 @@ class _SplashscreenPageState
             Container(),
            Image.asset(logoApp, width: 200,),
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text('by Criatees'),
+              padding: const EdgeInsets.only(bottom:25.0),
+              child: Text('by criatees', style: TextStyle(fontWeight: FontWeight.w600),),
             )
           ],
         ),

@@ -1,0 +1,4 @@
+lib/app/modules/questions/components/qst_answer/qst_answer_widget.dart
+test/app/modules/questions/components/qst_answer/qst_answer_widget_test.dart
+lib/app/modules/questions/components/qst_answer/qst_answer_controller.dart
+test/app/modules/questions/components/qst_answer/qst_answer_controller_test.dart

@@ -38,7 +38,6 @@ class _RankingPageState extends ModularState<RankingPage, RankingController> {
                   children: <Widget>[
                     _badgeRanking(
                         name: 'Alan Abreu',
-                        email: 'aas2512@gmail.com',
                         image: 'assets/images/foto_profile.jpg',
                          circleAvatarTop: 15,
                         rankPosition: '2',
@@ -49,7 +48,6 @@ class _RankingPageState extends ModularState<RankingPage, RankingController> {
                       ),
                       _badgeRanking(
                         name: 'Alan Abreu',
-                        email: 'aas2512@gmail.com',
                         image: 'assets/images/foto_profile.jpg',
                          circleAvatarTop: 0,
                         rankPosition: '1',
@@ -61,7 +59,6 @@ class _RankingPageState extends ModularState<RankingPage, RankingController> {
                     
                       _badgeRanking(
                         name: 'Alan Abreu',
-                        email: 'aas2512@gmail.com',
                         image: 'assets/images/foto_profile.jpg',
                         circleAvatarTop: 15,
                         rankPosition: '3',
@@ -122,6 +119,64 @@ class _RankingPageState extends ModularState<RankingPage, RankingController> {
                     }),
               ),
             ),
+             Container(
+               decoration: BoxDecoration(
+                 color: Colors.blue,
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                      color: Colors.black,
+                  offset: Offset(1.0, 10.0),
+                  blurRadius: 15.0,
+                    )
+                  ]
+               ),
+               height: 65,
+               width: MediaQuery.of(context).size.width,
+              child: Card(
+                
+                color: Colors.blue,
+                child: Container(
+                        margin: EdgeInsets.only(bottom:5, top: 5, left: 15, right: 20),
+                        height: 50,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            CircleAvatar(
+                              maxRadius: 25,
+                              backgroundImage:
+                                  AssetImage('assets/images/foto_profile.jpg'),
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.35,
+                              child: Text(
+                                'Você ',
+                                style: TextStyle(fontWeight: FontWeight.w400, color: Colors.white),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Icon(Icons.bubble_chart, color: Colors.white),
+                                Text(
+                                  '3562 ',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold,color: Colors.white),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ],
+                            ),
+                            Text(
+                              '#452 ',
+                              style: TextStyle(
+                                  fontSize: 11, fontWeight: FontWeight.bold, color: Colors.white),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                      )
+              ),
+            )
           ],
         ),
       ),
@@ -131,7 +186,7 @@ class _RankingPageState extends ModularState<RankingPage, RankingController> {
   _badgeRanking(
       {String image,
       String name,
-      String email,
+     
       String rankNumber,
       String rankPosition,
       double fontSizeRankNumber,
@@ -171,19 +226,9 @@ class _RankingPageState extends ModularState<RankingPage, RankingController> {
               ),
             ),
           ),
+          
           Positioned(
-            top: 115,
-            child: Container(
-              width: MediaQuery.of(context).size.width * 0.25,
-              child: Text(
-                email,
-                style: TextStyle(fontSize: 10, color: Colors.grey[400]),
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-          ),
-          Positioned(
-              bottom: 0,
+              bottom: 7,
               child: Text(
                     rankNumber,
                     style: TextStyle(fontSize: fontSizeRankNumber, fontWeight: FontWeight.bold),

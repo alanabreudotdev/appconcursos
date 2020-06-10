@@ -3,6 +3,7 @@ import 'package:eusereiaprovado/app/modules/auth/auth_module.dart';
 import 'package:eusereiaprovado/app/modules/home/home_module.dart';
 import 'package:eusereiaprovado/app/modules/notifications/notifications_module.dart';
 import 'package:eusereiaprovado/app/modules/profile/profile_module.dart';
+import 'package:eusereiaprovado/app/modules/questions/questions_module.dart';
 import 'package:eusereiaprovado/app/modules/ranking/ranking_module.dart';
 import 'package:eusereiaprovado/app/modules/splashscreen/splashscreen_module.dart';
 import 'package:eusereiaprovado/app/modules/support/support_module.dart';
@@ -32,7 +33,8 @@ class AppModule extends MainModule {
         Router('/support', module: SupportModule(), transition: Helpers().transitions),
         Router('/notifications', module: NotificationsModule(), transition: Helpers().transitions),
         Router('/ranking', module: RankingModule(), transition: Helpers().transitions),
-        Router('/disciplinas', module: DisciplinasModule(), transition: Helpers().transitions)
+        Router('/disciplinas', module: DisciplinasModule(), transition: Helpers().transitions),
+        Router('/questions', module: QuestionsModule(), transition: Helpers().transitions)
       ];
 
   @override

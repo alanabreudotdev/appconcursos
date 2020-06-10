@@ -34,9 +34,7 @@ class _NotificationsPageState
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              SizedBox(
-                height: 10,
-              ),
+             
               _notification(false),
               _notification(false),
               _notification(false),
@@ -59,12 +57,15 @@ class _NotificationsPageState
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
+          SizedBox(
+                height: 10,
+              ),
           Text(
             'Novidades! Mais questões para você resolver!',
-            style: !ready ? _notificationNotReady: _notificationReady
+            style: !ready ? _notificationNotReady : _notificationReady
           ),
           SizedBox(
-            height: 0,
+            height: 10,
           ),
           Text(
             'Inserimos mais de mil questões.',
