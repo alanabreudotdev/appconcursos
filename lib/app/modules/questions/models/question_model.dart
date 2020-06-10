@@ -8,15 +8,15 @@ class QuestionApiModel {
   int categoryId;
   String title;
   String questionType;
-  Null thumbnail;
+  String thumbnail;
   int numberOfAnswer;
   String choiceA;
   String choiceB;
   String choiceC;
   String choiceD;
-  Null choiceE;
+  String choiceE;
   String answer;
-  Null explanation;
+  String explanation;
   int status;
   String createdAt;
   String updatedAt;

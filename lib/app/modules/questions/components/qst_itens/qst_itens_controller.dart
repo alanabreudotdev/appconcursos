@@ -8,10 +8,5 @@ abstract class _QstItensControllerBase with Store {
 
   
 
-  @observable
-  String selectedRadio;
-
-
-  @action
-  void setSelectedRadio(value) => selectedRadio = value;
+ 
 }

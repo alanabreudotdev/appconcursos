@@ -3,46 +3,72 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_html/style.dart';
 
-class QstAnswerWidget extends StatelessWidget {
+class QstAnswerWidget extends StatefulWidget {
+  final String explanation;
+
+  
+
+  QstAnswerWidget({this.explanation});
+
+  @override
+  _QstAnswerWidgetState createState() => _QstAnswerWidgetState();
+}
+
+class _QstAnswerWidgetState extends State<QstAnswerWidget> {
   var _controller = ExpandableController(initialExpanded: false);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 8.0, right: 8),
-      child: Card(
-        elevation: 0.5,
-        child: Container(
-          child: ExpandablePanel(
-            controller: _controller,
-            header: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Row(
-                children: <Widget>[
-                  Icon(Icons.chat_bubble_outline, size: 17,),
-                  SizedBox(width: 5,),
-                  Text('Comentário da Questão'),
-                ],
-              )
-            ),
-            collapsed: Container(),
-            expanded: Expanded(
-              child: Container(
-                width: MediaQuery.of(context).size.width / 1.63,
-                child: Html(
-                  shrinkWrap: true,
-                  data: htmlData,
-                  style: {
-                    "p": Style(
-                        textAlign: TextAlign.justify,
-                        fontSize: FontSize.xSmall),
-                  },
+    return Column(
+      children: <Widget>[
+         SizedBox(height: 10,),
+        Padding(
+          padding: const EdgeInsets.only(left: 8.0, right: 8),
+          child: Card(
+            color: Colors.green,
+            child: Container(
+            padding: EdgeInsets.all(12),
+            width: MediaQuery.of(context).size.width,
+            child: Center(child: Text('Acertou'))),),
+        ),
+        SizedBox(height: 10,),
+        this.widget.explanation != null ? Padding(
+          padding: const EdgeInsets.only(left: 8.0, right: 8),
+          child: Card(
+            elevation: 0.5,
+            child: Container(
+              child: ExpandablePanel(
+                controller: _controller,
+                header: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Row(
+                    children: <Widget>[
+                      Icon(Icons.chat_bubble_outline, size: 17,),
+                      SizedBox(width: 5,),
+                      Text('Comentário da Questão'),
+                    ],
+                  )
+                ),
+                collapsed: Container(),
+                expanded: Expanded(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width / 1.63,
+                    child: Html(
+                      shrinkWrap: true,
+                      data: widget.explanation,
+                      style: {
+                        "p": Style(
+                            textAlign: TextAlign.justify,
+                            fontSize: FontSize.xSmall),
+                      },
+                    ),
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-      ),
+        ):Container(),
+      ],
     );
   }
 

@@ -44,8 +44,7 @@ class _QuestionsFiltersPageState extends State<QuestionsFiltersPage> {
       widgets: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(12.0),
-          child: Expanded(
-            child: Column(
+          child:  Column(
               children: <Widget>[
                 MultiSelect(
                     hintText: 'Toque para selecionar',
@@ -126,7 +125,7 @@ class _QuestionsFiltersPageState extends State<QuestionsFiltersPage> {
             ),
           ),
         ),
-      ),
+      
     );
   }
 

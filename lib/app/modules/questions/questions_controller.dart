@@ -11,22 +11,58 @@ abstract class _QuestionsControllerBase with Store {
 
   final QuestionRepository questionRepository;
 
- @observable
+  _QuestionsControllerBase(this.questionRepository);
+
+  @observable
+  bool isLoading = false;
+
+  @observable
   String textEnun = 'carregando';
 
+  
 
   @observable
   List<QuestionApiModel> questions;
 
-  _QuestionsControllerBase(this.questionRepository);
+  @action
+  void setIsLoading(bool value) => isLoading = value;
 
   @action
-  void setQuestionList<QuestionApiModel>(value) => questions = value; 
-
-  @action
-  Future getQuestionfromRepo() async{
-    setQuestionList(await questionRepository.fetchQuestions());  
+  getQuestionfromRepo() async {
+    setIsLoading(true);
+    questionRepository.fetchQuestions().then((value) { 
+      
+      questions = value;
+       setIsLoading(false);
+      });
+   
   }
+
+
+  @action
+  Future responderQuestion() async {
+    questionAnswered = true;
+    return selectedRadio;
+  }
+
+  /*
+  * QUESTION ITENS
+  */
+   @observable
+  String selectedRadio;
+
+  @observable
+  bool questionAnswered = false;
+
+  @action
+  setQuestionAnswered(bool value) => questionAnswered = value;
+
+  @action
+  void setSelectedRadio(value) => selectedRadio = value;
+
+  /*
+  * END QUESTION ITENS
+  */
 
 
 }

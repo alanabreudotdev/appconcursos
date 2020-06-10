@@ -7,12 +7,16 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 class QstTextHeaderWidget extends StatelessWidget {
 
+  final String textHeader;
+
   var _controller = ExpandableController(initialExpanded: false);
   final controller = Modular.get<QuestionsController>();
 
+  QstTextHeaderWidget(this.textHeader);
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return textHeader != null ? Padding(
       padding: const EdgeInsets.only(left:8.0, right: 8),
       child: Card(
         elevation: 0.5,
@@ -25,7 +29,7 @@ class QstTextHeaderWidget extends StatelessWidget {
                 children: <Widget>[
                   Icon(Icons.subject, size: 17,),
                   SizedBox(width: 5,),
-                  Text(controller.textEnun),
+                  Text('Texto da Questão'),
                 ],
               )
             ),
@@ -35,7 +39,7 @@ class QstTextHeaderWidget extends StatelessWidget {
                 width: MediaQuery.of(context).size.width/1.6,
                 child: Html(
                   shrinkWrap: true,
-                  data: htmlData,
+                  data: textHeader,
                   style: {
                     "p": Style(
                         textAlign: TextAlign.justify, fontSize: FontSize.xSmall),
@@ -46,7 +50,7 @@ class QstTextHeaderWidget extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ):Container();
   }
 
   String htmlData = """
