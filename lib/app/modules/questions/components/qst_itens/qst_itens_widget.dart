@@ -13,6 +13,7 @@ class QstItensWidget extends StatelessWidget {
   final String choiceC;
   final String choiceD;
   final String choiceE;
+  final String answer;
   final int numberofAnswer;
 
   final controller = Modular.get<QuestionsController>();
@@ -23,7 +24,7 @@ class QstItensWidget extends StatelessWidget {
       this.choiceC,
       this.choiceD,
       this.choiceE,
-      this.numberofAnswer});
+      this.numberofAnswer, this.answer});
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +49,7 @@ class QstItensWidget extends StatelessWidget {
           child: Container(
             color: Colors.white,
             child: RadioListTile(
+              
                 dense: true,
                 title: Text(
                   item,
@@ -57,11 +59,13 @@ class QstItensWidget extends StatelessWidget {
                       TextStyle(fontSize: 14, decoration: TextDecoration.none),
                 ),
                 
-                groupValue: controller.selectedRadio,
+                groupValue: controller.answerSelectedRadio,
                 value: value,
                 onChanged: (value) {
-                  print(controller.questions[0].id);
-                  controller.setSelectedRadio(value);
+                  print("Escolha do usuario: {$value}");
+                  print("Resposta: {$answer}");
+                  controller.answerCorrect = answer;
+                  controller.setAnswerSelectedRadio(value);
                 }),
           ),
         ),

@@ -10,7 +10,6 @@ final Color cor02;
 final IconData icons;
 
   
-
   const BoxHorizontalWidget({Key key, this.altura, this.titulo, this.subTitulo, this.cor01, this.cor02, this.icons}) : super(key: key);
   
   @override

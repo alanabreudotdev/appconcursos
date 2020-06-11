@@ -9,6 +9,14 @@ part of 'questions_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$QuestionsController on _QuestionsControllerBase, Store {
+  Computed<bool> _$checkAnswerResultComputed;
+
+  @override
+  bool get checkAnswerResult => (_$checkAnswerResultComputed ??= Computed<bool>(
+          () => super.checkAnswerResult,
+          name: '_QuestionsControllerBase.checkAnswerResult'))
+      .value;
+
   final _$isLoadingAtom = Atom(name: '_QuestionsControllerBase.isLoading');
 
   @override
@@ -54,19 +62,35 @@ mixin _$QuestionsController on _QuestionsControllerBase, Store {
     });
   }
 
-  final _$selectedRadioAtom =
-      Atom(name: '_QuestionsControllerBase.selectedRadio');
+  final _$answerCorrectAtom =
+      Atom(name: '_QuestionsControllerBase.answerCorrect');
 
   @override
-  String get selectedRadio {
-    _$selectedRadioAtom.reportRead();
-    return super.selectedRadio;
+  String get answerCorrect {
+    _$answerCorrectAtom.reportRead();
+    return super.answerCorrect;
   }
 
   @override
-  set selectedRadio(String value) {
-    _$selectedRadioAtom.reportWrite(value, super.selectedRadio, () {
-      super.selectedRadio = value;
+  set answerCorrect(String value) {
+    _$answerCorrectAtom.reportWrite(value, super.answerCorrect, () {
+      super.answerCorrect = value;
+    });
+  }
+
+  final _$answerSelectedRadioAtom =
+      Atom(name: '_QuestionsControllerBase.answerSelectedRadio');
+
+  @override
+  String get answerSelectedRadio {
+    _$answerSelectedRadioAtom.reportRead();
+    return super.answerSelectedRadio;
+  }
+
+  @override
+  set answerSelectedRadio(String value) {
+    _$answerSelectedRadioAtom.reportWrite(value, super.answerSelectedRadio, () {
+      super.answerSelectedRadio = value;
     });
   }
 
@@ -129,11 +153,11 @@ mixin _$QuestionsController on _QuestionsControllerBase, Store {
   }
 
   @override
-  void setSelectedRadio(dynamic value) {
+  void setAnswerSelectedRadio(dynamic value) {
     final _$actionInfo = _$_QuestionsControllerBaseActionController.startAction(
-        name: '_QuestionsControllerBase.setSelectedRadio');
+        name: '_QuestionsControllerBase.setAnswerSelectedRadio');
     try {
-      return super.setSelectedRadio(value);
+      return super.setAnswerSelectedRadio(value);
     } finally {
       _$_QuestionsControllerBaseActionController.endAction(_$actionInfo);
     }
@@ -145,8 +169,10 @@ mixin _$QuestionsController on _QuestionsControllerBase, Store {
 isLoading: ${isLoading},
 textEnun: ${textEnun},
 questions: ${questions},
-selectedRadio: ${selectedRadio},
-questionAnswered: ${questionAnswered}
+answerCorrect: ${answerCorrect},
+answerSelectedRadio: ${answerSelectedRadio},
+questionAnswered: ${questionAnswered},
+checkAnswerResult: ${checkAnswerResult}
     ''';
   }
 }

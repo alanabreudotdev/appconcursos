@@ -9,7 +9,7 @@ class QuestionRepository extends Disposable {
 
   Future fetchQuestions() async {
     final response =
-        await client.get('https://www.appdoantigao.com.br/api/category/17/questions');
+        await client.get('https://www.appdoantigao.com.br/api/category/16/questions');
         return QuestionApiModel.fromJsonList(response.data);
   }
 

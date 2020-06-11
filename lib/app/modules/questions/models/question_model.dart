@@ -16,6 +16,7 @@ class QuestionApiModel {
   String choiceD;
   String choiceE;
   String answer;
+  String explanationVideo;
   String explanation;
   int status;
   String createdAt;
@@ -34,6 +35,7 @@ class QuestionApiModel {
       this.choiceD,
       this.choiceE,
       this.answer,
+      this.explanationVideo,
       this.explanation,
       this.status,
       this.createdAt,
@@ -53,6 +55,7 @@ class QuestionApiModel {
         choiceD: json['choice_d'],
         choiceE: json['choice_e'],
         answer: json['answer'],
+        explanationVideo: 'teste',
         explanation: json['explanation'],
         status: json['status'],
         createdAt: json['created_at'],
@@ -72,6 +75,7 @@ class QuestionApiModel {
         'choice_d': this.choiceD,
         'choice_e': this.choiceE,
         'answer': this.answer,
+        'explanation_video': this.explanationVideo,
         'explanation': this.explanation,
         'status': this.status,
         'created_at': this.createdAt,

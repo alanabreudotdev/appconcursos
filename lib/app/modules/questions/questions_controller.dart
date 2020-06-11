@@ -19,6 +19,8 @@ abstract class _QuestionsControllerBase with Store {
   @observable
   String textEnun = 'carregando';
 
+
+
   
 
   @observable
@@ -41,24 +43,40 @@ abstract class _QuestionsControllerBase with Store {
 
   @action
   Future responderQuestion() async {
-    questionAnswered = true;
-    return selectedRadio;
+   if(answerSelectedRadio != null){
+     questionAnswered = true;
+   }
+    
+    return answerSelectedRadio;
   }
 
   /*
   * QUESTION ITENS
   */
-   @observable
-  String selectedRadio;
 
+  //REPOSTA CORRETA DA QUESTAO
+  @observable
+  String answerCorrect;
+
+  //RESPOSTA ESCOLHIDA PELO USUARIO
+  @observable
+  String answerSelectedRadio;
+
+  //SE QUESTAO RESPONDIDA = TRUE
   @observable
   bool questionAnswered = false;
 
+  //VERIFICA SE RESPOSTA DO USER É IGUAL A RESPOSTA DA QUESTAO
+  @computed
+  bool get checkAnswerResult => answerSelectedRadio == answerCorrect;
+
+  //ACAO PARA DIZER QUE A QUESTAO FOI RESOLVIDA PELO USER
   @action
   setQuestionAnswered(bool value) => questionAnswered = value;
 
+  //ACAO PARA SETAR O VALOR
   @action
-  void setSelectedRadio(value) => selectedRadio = value;
+  void setAnswerSelectedRadio(value) => answerSelectedRadio = value;
 
   /*
   * END QUESTION ITENS

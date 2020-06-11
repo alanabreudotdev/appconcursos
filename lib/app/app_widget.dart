@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:asuka/asuka.dart' as asuka;
 
 class AppWidget extends StatelessWidget {
 
@@ -20,6 +21,7 @@ class AppWidget extends StatelessWidget {
             Theme.of(context).textTheme
           )
           ),
+       builder: asuka.builder,
       initialRoute: '/',
       onGenerateRoute: Modular.generateRoute,
     );
