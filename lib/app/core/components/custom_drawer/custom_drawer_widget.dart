@@ -1,16 +1,22 @@
+import 'package:basic_utils/basic_utils.dart';
 import 'package:eusereiaprovado/app/core/components/custom_drawer/custom_drawer_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-
 
 class CustomDrawerWidget extends StatefulWidget {
   @override
   _CustomDrawerWidgetState createState() => _CustomDrawerWidgetState();
 }
 
-class _CustomDrawerWidgetState extends ModularState<CustomDrawerWidget, CustomDrawerController> {
+class _CustomDrawerWidgetState
+    extends ModularState<CustomDrawerWidget, CustomDrawerController> {
 
+      @override
+  void initState() {
+    controller.getUserInfor();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,7 +36,7 @@ class _CustomDrawerWidgetState extends ModularState<CustomDrawerWidget, CustomDr
                       'Logout',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    onTap: () => print('Logout'),
+                    onTap: () => controller.logout(),
                   ),
                 )
               ],
@@ -53,13 +59,17 @@ class _CustomDrawerWidgetState extends ModularState<CustomDrawerWidget, CustomDr
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text('Alan Abrue dos Santos',
-                                overflow: TextOverflow.ellipsis),
-                            Text(
-                              'aas2512@gmail.com',
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(fontSize: 12),
-                            ),
+                            Observer(builder: (_) {
+                              return !controller.isLoading ?  Text(StringUtils.capitalize(controller.name),
+                                  overflow: TextOverflow.ellipsis) : Container() ;
+                            }),
+                            Observer(builder: (_) {
+                              return !controller.isLoading ? Text(
+                                  controller.email,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(fontSize: 12),
+                              ): Container();
+                            }),
                           ],
                         ),
                       )
@@ -68,7 +78,6 @@ class _CustomDrawerWidgetState extends ModularState<CustomDrawerWidget, CustomDr
                 ],
               ),
             ),
-           
             Padding(
               padding: const EdgeInsets.only(left: 20.0),
               child: Column(
@@ -79,7 +88,9 @@ class _CustomDrawerWidgetState extends ModularState<CustomDrawerWidget, CustomDr
                       color: Colors.green,
                     ),
                     title: Text('Início'),
-                    onTap: () => Modular.to.pushReplacementNamed('/home'),
+                    onTap: () {
+                      Modular.to.pop();
+                      Modular.to.pushReplacementNamed('/home');} 
                   ),
                   ListTile(
                     leading: Icon(
@@ -95,9 +106,13 @@ class _CustomDrawerWidgetState extends ModularState<CustomDrawerWidget, CustomDr
                       color: Colors.purple,
                     ),
                     title: Text('Questões'),
-                     onTap: () => Modular.to.pushNamed('/questions/questions-filters'),
+                    onTap: () {
+                       Modular.to.pop();
+                       Modular.to.pushNamed('/questions/questions-filters');
+                    }
+                        
                   ),
-                   ListTile(
+                  ListTile(
                     leading: Icon(
                       Icons.equalizer,
                       color: Colors.blueGrey,
@@ -138,5 +153,3 @@ class _CustomDrawerWidgetState extends ModularState<CustomDrawerWidget, CustomDr
     );
   }
 }
-
-

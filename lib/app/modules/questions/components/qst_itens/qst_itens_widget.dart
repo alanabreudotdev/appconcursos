@@ -49,7 +49,7 @@ class QstItensWidget extends StatelessWidget {
           child: Container(
             color: Colors.white,
             child: RadioListTile(
-              
+                
                 dense: true,
                 title: Text(
                   item,
@@ -64,8 +64,9 @@ class QstItensWidget extends StatelessWidget {
                 onChanged: (value) {
                   print("Escolha do usuario: {$value}");
                   print("Resposta: {$answer}");
+
                   controller.answerCorrect = answer;
-                  controller.setAnswerSelectedRadio(value);
+                  controller.questionAnswered ?  null : controller.setAnswerSelectedRadio(value);
                 }),
           ),
         ),

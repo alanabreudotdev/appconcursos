@@ -15,7 +15,7 @@ class AppWidget extends StatelessWidget {
       navigatorKey: Modular.navigatorKey,
       title: appName,
       theme: ThemeData(
-          primarySwatch: Colors.deepPurple,
+          primarySwatch: Colors.blue,
           scaffoldBackgroundColor: Colors.grey[100],
           textTheme: GoogleFonts.ubuntuTextTheme(
             Theme.of(context).textTheme

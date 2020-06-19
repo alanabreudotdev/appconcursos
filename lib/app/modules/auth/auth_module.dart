@@ -1,4 +1,5 @@
 import 'package:eusereiaprovado/app/core/helpers.dart';
+import 'package:eusereiaprovado/app/core/repositories/api_repository.dart';
 import 'package:eusereiaprovado/app/modules/auth/recover/recover_controller.dart';
 import 'package:eusereiaprovado/app/modules/auth/recover/recover_page.dart';
 import 'package:eusereiaprovado/app/modules/auth/register/register_controller.dart';
@@ -12,7 +13,7 @@ class AuthModule extends ChildModule {
   List<Bind> get binds => [
         Bind((i) => RecoverController()),
         Bind((i) => RegisterController()),
-        Bind((i) => AuthController()),
+        Bind((i) => AuthController(i.get<ApiRepository>())),
       ];
 
   @override

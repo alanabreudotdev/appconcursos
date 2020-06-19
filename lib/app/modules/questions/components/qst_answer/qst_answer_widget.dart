@@ -7,10 +7,11 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class QstAnswerWidget extends StatefulWidget {
+  final String answer;
   final String explanation;
   final String explanationVideo;
 
-  QstAnswerWidget({this.explanation, this.explanationVideo});
+  QstAnswerWidget({this.explanation, this.explanationVideo, this.answer});
 
   @override
   _QstAnswerWidgetState createState() => _QstAnswerWidgetState();
@@ -32,16 +33,22 @@ class _QstAnswerWidgetState extends State<QstAnswerWidget> {
           print(widget.explanationVideo);
           return Padding(
             padding: const EdgeInsets.only(left: 8.0, right: 8),
-            child: Center(
-                      child: controller.checkAnswerResult
-                          ? Text(
-                              'ACERTOU!',
-                              style: TextStyle(color: Colors.green),
-                            )
-                          : Text(
-                              'ERROU!',
-                              style: TextStyle(color: Colors.red),
-                            ))
+            child: Column(
+              children: <Widget>[
+                Center(
+                          child: controller.checkAnswerResult
+                              ? Text(
+                                  'ACERTOU!',
+                                  style: TextStyle(color: Colors.green),
+                                )
+                              : Text(
+                                  'ERROU!',
+                                  style: TextStyle(color: Colors.red),
+                                )),
+                                SizedBox(height: 10,),
+                controller.checkAnswerResult ? Container() : Text("Resposta correta: ${widget.answer}")
+              ],
+            )
           );
         }),
         SizedBox(

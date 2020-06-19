@@ -91,8 +91,9 @@ class _QuestionsPageState
                             builder: (_) {
                               return controller.questionAnswered
                                   ? QstAnswerWidget(
-                                    explanationVideo: _qst.explanationVideo,
-                                    explanation: _qst.explanation,
+                                    answer: _qst.answer,
+                                      explanationVideo: _qst.explanationVideo,
+                                      explanation: _qst.explanation,
                                     )
                                   : Container();
                             },
@@ -112,39 +113,49 @@ class _QuestionsPageState
                                         action: () => controller
                                             .responderQuestion()
                                             .then((value) => {
-                                              value == null ? asuka.showSnackBar(SnackBar(
-    content: Text("Selecione uma Opção"),
-)): null
-                                            }),
+                                                  value == null
+                                                      ? asuka.showSnackBar(
+                                                          SnackBar(
+                                                          content: Text(
+                                                              "Selecione uma Opção"),
+                                                        ))
+                                                      : null
+                                                }),
                                       ),
                                     )
-                                  : controller.questions.length != index+1 ? Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: CustomRaisedButtonWidget(
-                                        btnName: 'Próxima',
-                                        verticalSize: 15,
-                                        accentColor:
-                                            Helpers().parseColor(colorDefault),
-                                        action: () {
-                                          _pageCtrl.animateToPage(
-                                              _pageCtrl.page.ceil() + 1,
-                                              duration: Duration(seconds: 1),
-                                              curve: Curves.linearToEaseOut);
-                                        },
-                                      ),
-                                    ): Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: CustomRaisedButtonWidget(
-                                        btnName: 'Refazer questões',
-                                        verticalSize: 15,
-                                        accentColor:
-                                            Helpers().parseColor(colorDefault),
-                                       action: () {
-                                          _pageCtrl
-                                          .jumpToPage(_pageCtrl.page.ceil()  - controller.questions.length);
-                                        },
-                                      ),
-                                    );
+                                  : controller.questions.length != index + 1
+                                      ? Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: CustomRaisedButtonWidget(
+                                            btnName: 'Próxima',
+                                            verticalSize: 15,
+                                            accentColor: Helpers()
+                                                .parseColor(colorDefault),
+                                            action: () {
+                                              _pageCtrl.animateToPage(
+                                                  _pageCtrl.page.ceil() + 1,
+                                                  duration:
+                                                      Duration(seconds: 1),
+                                                  curve:
+                                                      Curves.linearToEaseOut);
+                                            },
+                                          ),
+                                        )
+                                      : Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: CustomRaisedButtonWidget(
+                                            btnName: 'Refazer questões',
+                                            verticalSize: 15,
+                                            accentColor: Helpers()
+                                                .parseColor(colorDefault),
+                                            action: () {
+                                              _pageCtrl.jumpToPage(_pageCtrl
+                                                      .page
+                                                      .ceil() -
+                                                  controller.questions.length);
+                                            },
+                                          ),
+                                        );
                             },
                           ),
                           SizedBox(

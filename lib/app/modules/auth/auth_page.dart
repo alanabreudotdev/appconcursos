@@ -3,6 +3,7 @@ import 'package:eusereiaprovado/app/core/components/custom_text_widget.dart';
 import 'package:eusereiaprovado/app/core/constants.dart';
 import 'package:eusereiaprovado/app/core/helpers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'auth_controller.dart';
 
@@ -16,6 +17,9 @@ class AuthPage extends StatefulWidget {
 
 class _AuthPageState extends ModularState<AuthPage, AuthController> {
   //use 'controller' variable to access controller
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -66,27 +70,51 @@ class _AuthPageState extends ModularState<AuthPage, AuthController> {
                       color: Helpers().parseColor(colorDefault),
                       borderRadius: BorderRadius.circular(20)),
                 ),
-                CustomTextWidget(
-                  labelText: 'Email',
-                  keyboardType: TextInputType.emailAddress,
-                ),
-                CustomTextWidget(
-                  labelText: 'Senha',
-                  hasSuffix: true,
-                  isObscure: true,
-                  suffixAction: GestureDetector(
-                    child: Text(
-                      'Esqueceu?',
-                      style: TextStyle(fontSize: 14),
+                Observer(builder: (_) {
+                  return CustomTextWidget(
+                    labelText: 'Email',
+                    controller: emailController,
+                    onChange: controller.setEmail,
+                    keyboardType: TextInputType.emailAddress,
+                  );
+                }),
+                Observer(builder: (_) {
+                  return CustomTextWidget(
+                    labelText: 'Senha',
+                    controller: passController,
+                    onChange: controller.setPass,
+                    hasSuffix: true,
+                    isObscure: true,
+                    suffixAction: GestureDetector(
+                      child: Text(
+                        'Esqueceu?',
+                        style: TextStyle(fontSize: 14),
+                      ),
+                      onTap: () => Modular.link.pushNamed('/recover'),
                     ),
-                    onTap: () => Modular.link.pushNamed('/recover'),
-                  ),
-                ),
-                CustomRaisedButtonWidget(
-                  btnName: 'Entrar',
-                  accentColor: Helpers().parseColor(colorDefault),
-                  action: () => Modular.to.pushReplacementNamed('/home'),
-                )
+                  );
+                }),
+                Observer(builder: (_) {
+                  return !controller.isLoading
+                      ? CustomRaisedButtonWidget(
+                          btnName: 'Entrar',
+
+                          verticalSize: 20,
+                          accentColor: controller.formIsValid
+                              ? Helpers().parseColor(colorDefault)
+                              : Colors.grey,
+                          action: controller.formIsValid
+                              ? () {
+                                  print('apertei');
+                                  controller.login().then((value) => value
+                                      ? Modular.to.pushReplacementNamed('/home')
+                                      : "");
+                                }
+                              : null,
+                          //action: () => Modular.to.pushReplacementNamed('/home'),
+                        )
+                      : Center(child: CircularProgressIndicator());
+                })
               ],
             ),
           ),
